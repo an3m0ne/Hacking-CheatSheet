@@ -1,5 +1,5 @@
 # Bypass Applocker
-## Check CLM
+## Check Powershell Language Mode
 ```powershell
 $ExecutionContext.SessionState.LanguageMode
 ```
