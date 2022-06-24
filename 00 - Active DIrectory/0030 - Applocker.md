@@ -1,4 +1,9 @@
 # Applocker
+## Check Applocker Policy
+```
+Get-ApplockerPolicy -Effective | select -ExpandProperty RuleCollections
+```
+
 ## Check Powershell Language Mode
 ```powershell
 $ExecutionContext.SessionState.LanguageMode
